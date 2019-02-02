@@ -1,21 +1,29 @@
+#Maintainer Qamber Mehdi
+# Created on August 25, 2018
+
 import requests
 
-api_key = "UltCcVIZngopW1H2oyQZOwN2yARWw86wRD2JdwpG5897kMLGOLciOxLWShuW8iO7LyDS42BKe8BRzdndrDG-bU5eBz2JbjhNV83ROKduaCktheyc1enBSqktRfoRWnYx"
+def search_businesses():
 
-url = "https://api.yelp.com/v3/businesses/search"
+    api_key = "UltCcVIZngopW1H2oyQZOwN2yARWw86wRD2JdwpG5897kMLGOLciOxLWShuW8iO7LyDS42BKe8BRzdndrDG-bU5eBz2JbjhNV83ROKduaCktheyc1enBSqktRfoRWnYx"
 
-my_headers = {
-    "Authorization": "Bearer %s" % api_key
-}
+    url = "https://api.yelp.com/v3/businesses/search"
 
-my_params = {
-    "term": "restaurants",
-    "location": "chicago",
-    "limit": 3,
-}
+    my_headers = {
+        "Authorization": "Bearer %s" % api_key
+    }
 
-businesses_object = requests.get(url, headers=my_headers, params=my_params)
+    my_params = {
+        "term": "restaurants",
+        "location": "chicago",
+        "limit": 3,
+    }
 
-businesses_dict = businesses_object.text
+    businesses_object = requests.get(url, headers=my_headers, params=my_params)
 
-print(businesses_dict)
+    businesses_dict = businesses_object.text
+
+    print(businesses_dict)
+
+#calling the search_businesses function
+search_businesses()
