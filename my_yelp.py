@@ -3,7 +3,7 @@
 
 import requests
 
-def search_businesses():
+def search_businesses(search_term, search_location):
 
     api_key = "UltCcVIZngopW1H2oyQZOwN2yARWw86wRD2JdwpG5897kMLGOLciOxLWShuW8iO7LyDS42BKe8BRzdndrDG-bU5eBz2JbjhNV83ROKduaCktheyc1enBSqktRfoRWnYx"
 
@@ -14,8 +14,8 @@ def search_businesses():
     }
 
     my_params = {
-        "term": "restaurants",
-        "location": "chicago",
+        "term": search_term,
+        "location": search_location,
         "limit": 3,
     }
 
@@ -26,4 +26,4 @@ def search_businesses():
     print(businesses_dict)
 
 #calling the search_businesses function
-search_businesses()
+search_businesses("restaurants", "chicago")
