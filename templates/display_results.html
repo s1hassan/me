@@ -4,15 +4,22 @@
   <title>
     My Yelpclone Website - Results Page
   </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
 </head>
 
 <body>
-  Here are your top 3 recommendations for {{ term }} in {{ location }}:
-  {% for each_business in establishments %}
-  <li> <h3> {{ each_business.name }} </h3> <h5> Rating: {{ each_business.rating }} </h5>
-    <h5> Address: {{ each_business.location.display_address }} </h5>
-    <h5> Phone: {{ each_business.display_phone }} </h5>
-  </li>
-  {% endfor %}
+  <div class = "jumbotron">
+    <div class = "container">
+      <h3>Here are your top 3 recommendations for {{ term }} in {{ location }}:</h3><br>
+
+      {% for each_business in establishments %}
+      <li> <h3> {{ each_business.name }} </h3> <h5> Rating: {{ each_business.rating }} </h5>
+        <h5> Address: {{ each_business.location.display_address }} </h5>
+        <h5> Phone: {{ each_business.display_phone }} </h5>
+      </li>
+      {% endfor %}
+
+    </div>
+  </div>
 </body>
 </html>
