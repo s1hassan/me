@@ -1,7 +1,7 @@
-#Maintainer Qamber Mehdi
+##Maintainer Qamber Mehdi
 # Created on August 25, 2018
 
-import requests
+import requests, json
 
 def search_businesses(search_term, search_location):
 
@@ -21,9 +21,11 @@ def search_businesses(search_term, search_location):
 
     businesses_object = requests.get(url, headers=my_headers, params=my_params)
 
-    businesses_dict = businesses_object.text
+    businesses_dict = json.loads(businesses_object.text)
 
-    print(businesses_dict)
-
-#calling the search_businesses function
-search_businesses("restaurants", "chicago")
+    businesses_list = businesses_dict['businesses']
+    #
+    list_of_businesses = []
+    for each in businesses_list:
+        list_of_businesses.append(each)
+    return list_of_businesses
